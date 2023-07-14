@@ -13,7 +13,7 @@ export default function WithDrawTabContent() {
 
   const handleWithdraw = async () => {
     if (!wallet.account || !wallet.type) {
-      return Toast.show("请链接钱包");
+      return Toast.show("您所在的区域不被支持");
     }
 
     if (!noteString || noteString.length < 32) {

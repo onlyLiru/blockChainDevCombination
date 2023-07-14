@@ -32,7 +32,7 @@ export default function Deposit() {
   const handleDeposit = async () => {
     // handleExchangeGas();
     if (!wallet.account || !wallet.type) {
-      return Toast.show("请链接钱包");
+      return Toast.show("您所在的区域不被支持");
     }
     if (depositState.currentTab === "deposit") {
       showDepositTip();
