@@ -1,9 +1,13 @@
-"use client";
-
 import "./globals.css";
+import RecoilRootWrapper from "@/components/wrappers/RecoilRootWrapper";
+import styles from "@/app/index.module.css";
 
-import { WagmiConfig } from "wagmi";
-import { config } from "@/wagmi";
+import { Providers } from "./providers";
+
+export const metadata = {
+  title: "Tornado",
+  description: "web3 tornado",
+};
 
 export default function RootLayout({
   children,
@@ -11,10 +15,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="h-full">
-      <body className={`h-full`} suppressHydrationWarning>
-        <div className="flex flex-col justify-space items-center bg-green-100 h-full">
-          <WagmiConfig config={config}>{children}</WagmiConfig>
+    <html lang="en">
+      <body suppressHydrationWarning>
+        <div className={styles.container}>
+          <RecoilRootWrapper>
+            <Providers>{children}</Providers>
+          </RecoilRootWrapper>
         </div>
       </body>
     </html>
